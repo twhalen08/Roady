@@ -1,0 +1,10 @@
+﻿{
+  "Username": "TestUser",
+  "World": "Blizzard",
+  "FileName": "testRoad",
+  "FilePath": "c:\\users\\my documents",
+  "RoadWidth": "1.0",
+  "UVScale": "1.0",
+  "Segments": "20",
+  "TwoSided": "true"
+}

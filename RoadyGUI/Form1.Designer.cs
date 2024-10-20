@@ -38,14 +38,16 @@
             label6 = new Label();
             btnLogin = new Button();
             tabPage2 = new TabPage();
-            btnBrowse = new Button();
+            groupBox1 = new GroupBox();
+            label3 = new Label();
+            chkDoubleSided = new CheckBox();
             btnSetDimensions = new Button();
-            label5 = new Label();
-            txtSegments = new TextBox();
+            txtRoadWidth = new TextBox();
             label4 = new Label();
             txtUvScaling = new TextBox();
-            label3 = new Label();
-            txtRoadWidth = new TextBox();
+            txtSegments = new TextBox();
+            label5 = new Label();
+            btnBrowse = new Button();
             label2 = new Label();
             txtFileName = new TextBox();
             label1 = new Label();
@@ -55,6 +57,7 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -64,7 +67,7 @@
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(681, 254);
+            tabControl1.Size = new Size(670, 311);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -79,7 +82,7 @@
             tabPage1.Location = new Point(4, 32);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(673, 218);
+            tabPage1.Size = new Size(662, 275);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Connection";
             tabPage1.UseVisualStyleBackColor = true;
@@ -145,14 +148,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(groupBox1);
             tabPage2.Controls.Add(btnBrowse);
-            tabPage2.Controls.Add(btnSetDimensions);
-            tabPage2.Controls.Add(label5);
-            tabPage2.Controls.Add(txtSegments);
-            tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(txtUvScaling);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(txtRoadWidth);
             tabPage2.Controls.Add(label2);
             tabPage2.Controls.Add(txtFileName);
             tabPage2.Controls.Add(label1);
@@ -162,10 +159,99 @@
             tabPage2.Location = new Point(4, 32);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(673, 218);
+            tabPage2.Size = new Size(662, 275);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Road";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(chkDoubleSided);
+            groupBox1.Controls.Add(btnSetDimensions);
+            groupBox1.Controls.Add(txtRoadWidth);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(txtUvScaling);
+            groupBox1.Controls.Add(txtSegments);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Location = new Point(12, 92);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(634, 125);
+            groupBox1.TabIndex = 16;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(22, 41);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 23);
+            label3.TabIndex = 9;
+            label3.Text = "Road Width";
+            // 
+            // chkDoubleSided
+            // 
+            chkDoubleSided.AutoSize = true;
+            chkDoubleSided.Location = new Point(335, 76);
+            chkDoubleSided.Name = "chkDoubleSided";
+            chkDoubleSided.Size = new Size(109, 27);
+            chkDoubleSided.TabIndex = 15;
+            chkDoubleSided.Text = "Two Sided";
+            chkDoubleSided.UseVisualStyleBackColor = true;
+            // 
+            // btnSetDimensions
+            // 
+            btnSetDimensions.Location = new Point(466, 74);
+            btnSetDimensions.Name = "btnSetDimensions";
+            btnSetDimensions.Size = new Size(91, 29);
+            btnSetDimensions.TabIndex = 1;
+            btnSetDimensions.Text = "Set";
+            btnSetDimensions.UseVisualStyleBackColor = true;
+            btnSetDimensions.Click += btnSetDimensions_Click;
+            // 
+            // txtRoadWidth
+            // 
+            txtRoadWidth.Location = new Point(128, 38);
+            txtRoadWidth.Name = "txtRoadWidth";
+            txtRoadWidth.Size = new Size(76, 30);
+            txtRoadWidth.TabIndex = 8;
+            txtRoadWidth.Text = "1.0";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(210, 41);
+            label4.Name = "label4";
+            label4.Size = new Size(92, 23);
+            label4.TabIndex = 11;
+            label4.Text = "UV Scaling";
+            // 
+            // txtUvScaling
+            // 
+            txtUvScaling.Location = new Point(308, 38);
+            txtUvScaling.Name = "txtUvScaling";
+            txtUvScaling.Size = new Size(76, 30);
+            txtUvScaling.TabIndex = 10;
+            txtUvScaling.Text = "1.0";
+            // 
+            // txtSegments
+            // 
+            txtSegments.Location = new Point(481, 38);
+            txtSegments.Name = "txtSegments";
+            txtSegments.Size = new Size(76, 30);
+            txtSegments.TabIndex = 12;
+            txtSegments.Text = "20";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(390, 41);
+            label5.Name = "label5";
+            label5.Size = new Size(85, 23);
+            label5.TabIndex = 13;
+            label5.Text = "Segments";
+            label5.Click += label5_Click;
             // 
             // btnBrowse
             // 
@@ -176,68 +262,6 @@
             btnBrowse.Text = "Browse";
             btnBrowse.UseVisualStyleBackColor = true;
             btnBrowse.Click += btnBrowse_Click;
-            // 
-            // btnSetDimensions
-            // 
-            btnSetDimensions.Location = new Point(563, 104);
-            btnSetDimensions.Name = "btnSetDimensions";
-            btnSetDimensions.Size = new Size(83, 31);
-            btnSetDimensions.TabIndex = 1;
-            btnSetDimensions.Text = "Set";
-            btnSetDimensions.UseVisualStyleBackColor = true;
-            btnSetDimensions.Click += btnSetDimensions_Click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(390, 107);
-            label5.Name = "label5";
-            label5.Size = new Size(85, 23);
-            label5.TabIndex = 13;
-            label5.Text = "Segments";
-            label5.Click += label5_Click;
-            // 
-            // txtSegments
-            // 
-            txtSegments.Location = new Point(481, 104);
-            txtSegments.Name = "txtSegments";
-            txtSegments.Size = new Size(76, 30);
-            txtSegments.TabIndex = 12;
-            txtSegments.Text = "20";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(200, 107);
-            label4.Name = "label4";
-            label4.Size = new Size(92, 23);
-            label4.TabIndex = 11;
-            label4.Text = "UV Scaling";
-            // 
-            // txtUvScaling
-            // 
-            txtUvScaling.Location = new Point(308, 104);
-            txtUvScaling.Name = "txtUvScaling";
-            txtUvScaling.Size = new Size(76, 30);
-            txtUvScaling.TabIndex = 10;
-            txtUvScaling.Text = "1.0";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 107);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 23);
-            label3.TabIndex = 9;
-            label3.Text = "Road Width";
-            // 
-            // txtRoadWidth
-            // 
-            txtRoadWidth.Location = new Point(118, 105);
-            txtRoadWidth.Name = "txtRoadWidth";
-            txtRoadWidth.Size = new Size(76, 30);
-            txtRoadWidth.TabIndex = 8;
-            txtRoadWidth.Text = "1.0";
             // 
             // label2
             // 
@@ -254,7 +278,6 @@
             txtFileName.Name = "txtFileName";
             txtFileName.Size = new Size(418, 30);
             txtFileName.TabIndex = 6;
-            txtFileName.Text = "testroad1";
             // 
             // label1
             // 
@@ -274,7 +297,7 @@
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(508, 155);
+            btnReset.Location = new Point(156, 223);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(138, 46);
             btnReset.TabIndex = 3;
@@ -284,7 +307,7 @@
             // 
             // btnStartRoad
             // 
-            btnStartRoad.Location = new Point(364, 155);
+            btnStartRoad.Location = new Point(12, 223);
             btnStartRoad.Name = "btnStartRoad";
             btnStartRoad.Size = new Size(138, 46);
             btnStartRoad.TabIndex = 2;
@@ -296,7 +319,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(706, 276);
+            ClientSize = new Size(691, 335);
             Controls.Add(tabControl1);
             Name = "RoadyGUI";
             RightToLeftLayout = true;
@@ -306,6 +329,8 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -338,5 +363,7 @@
         private Label label7;
         private TextBox txtWorld;
         private TextBox txtUser;
+        private CheckBox chkDoubleSided;
+        private GroupBox groupBox1;
     }
 }

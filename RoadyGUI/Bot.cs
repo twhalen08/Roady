@@ -15,6 +15,7 @@ namespace RoadyGUI
         private Avatar owner;
         private Dictionary<int, NodeLocation> nodes;
         public bool sessionInProgress { get; private set; } = false;
+        private bool doubleSided = false;
         private int placedNodes = 0;
         private int firstNodeId = 0;
         private VpObject? previewObj = null;
@@ -209,7 +210,7 @@ namespace RoadyGUI
 
         public void GenerateRoad(VpNet.Vector3 originOffset)
         {
-            objFilePath = Path.Combine(folderPath, objFileName + ".obj");
+            objFilePath = Path.Combine(folderPath, objFileName + ".rwx");
             List<(double x, double y, double z)> positions = new List<(double x, double y, double z)>();
 
             var sortedNodes = nodes.OrderBy(k => k.Key).ToList();
@@ -249,8 +250,8 @@ namespace RoadyGUI
                 }
             }
 
-            RoadGenerator generator = new RoadGenerator(positions, startHeading, endHeading, segmentsPerSection, roadWidth, uvScaleY);
-            generator.GenerateOBJ(objFilePath);
+            RoadGeneratorRWX generator = new RoadGeneratorRWX(positions, startHeading, endHeading, segmentsPerSection, roadWidth, uvScaleY, doubleSided);
+            generator.GenerateRWX(objFilePath);
         }
 
         public async void ClearNodes()
@@ -269,11 +270,12 @@ namespace RoadyGUI
             nodes.Clear();
         }
 
-        public async void UpdateDimensions(float width, float uvScale, int segments)
+        public async void UpdateDimensions(float width, float uvScale, int segments, bool twoSided)
         {
             roadWidth = width;
             uvScaleY = uvScale;
             segmentsPerSection = segments;
+            doubleSided = twoSided;
 
             if (sessionInProgress)
             {
