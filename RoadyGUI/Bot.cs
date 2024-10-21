@@ -154,8 +154,9 @@ namespace RoadyGUI
 
                 VpObject v = new VpObject
                 {
-                    Model = "terrain.rwx",
+                    Model = "gr-gizmo01a",
                     Description = "roadnode",
+                    Action = "create solid no",
                     Position = owner.Location.Position,
                     Rotation = new VpNet.Vector3(0, 1, 0),  // Initial orientation, you can adjust this
                     Angle = 0.0f  // Make sure to set the angle to 0 or any default initial heading
@@ -254,14 +255,24 @@ namespace RoadyGUI
             generator.GenerateRWX(objFilePath);
         }
 
-        public async void ClearNodes()
+        public async 
+        Task
+ClearNodes()
         {
             sessionInProgress = false;
             placedNodes = 0;
             firstNodeId = 0;
             startHeading = 0.0f;
             endHeading = 0.0f;
-            await client.DeleteObjectAsync(previewObj.Id);
+            
+            
+            if(previewObj != null)
+            {
+                await client.DeleteObjectAsync(previewObj.Id);
+
+            }
+
+
             previewObj = null;
             foreach (var node in nodes)
             {
